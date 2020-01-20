@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Комнаты, которые Вы создали:</h1>
+    {% for room in my_rooms %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ url_for('room', room_link=room.link) }}">{{ room.name }}</a>
+            </div>
+            <p class="article-content">Секретная ссылка на комнату - "{{ url_for('room', room_link=room.link) }}"</p>
+          </div>
+        </article>
+    {% endfor %}
+    <div class="form-group">
+        <a class="btn btn-outline-info" href="{{ url_for('new_room') }}">Создать новую комнату</a>
+    </div>
+    <h1>Комнаты, в которые Вас пригласили:</h1>
+    {% if not j_rooms %}
+        <p>Вас еще никто никуда не пригласил :(</p>
+        <p>Напишите друзьям, может, найдете себе игру?</p>
+    {% endif %}
+    {% if j_rooms %}
+        {% for room in j_rooms %}
+            <article class="media content-section">
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <a class="mr-2" href="{{ url_for('room', room_link=room.link) }}">{{ room.name }}</a>
+                    </div>
+                    <p class="article-content">Секретная ссылка на комнату - "{{ url_for('room', room_link=room.link) }}"</p>
+                </div>
+            </article>
+        {% endfor %}
+    {% endif %}
+{% endblock content %}

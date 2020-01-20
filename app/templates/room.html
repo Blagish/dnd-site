@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <h1>{{ room.name }}</h1>
+    <div class="big-row room-bg" style="height:800px;background:linear-gradient(180deg, {{ color }}, #fafafa)">
+
+    <div class="room-members">
+    <h3>Участники:</h3>
+    <ul>
+        <li><p style="color:cyan;font-size:20px;"><b>{{ gm.username }}</b></p></li>
+        {% for user, id in guests %}
+            {% if user %}
+                <li><p style="font-size:19px;">{{ user }}
+                    {% if is_gm %}
+                        <b><a style="color:red;font-size:21px" href="{{ url_for('kick_player', room_link=room.link, user_id=id) }}">Х</a></b>
+                    {% endif %}</p>
+                    </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    </div>
+    {% if not_joined %}
+          <div class="form-group">
+                <a class="btn btn-outline-info" href="{{ url_for('join_room', room_link=room.link) }}">Вступить в комнату</a>
+          </div>
+    {% endif %}
+
+    <div class="room-tokens">
+        <h3>Токены:</h3>
+        <ul>
+            {% for token in tokens %}
+                <li>{{ token.name }}, {{ token.health }}/{{ token.max_health }}</li>
+            {% endfor %}
+        </ul>
+        <div class="form-group">
+            <a class="btn btn-outline-primary" href="{{ url_for('add_token', room_id=room.id) }}">Добавить токен</a>
+          </div>
+    </div>
+    <!--div class="chat">
+        <input type="text" size="40">
+    </div-->
+    </div>
+
+{% endblock content %}

@@ -1,55 +1,38 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-        <div class="container">
-          <a class="navbar-brand mr-4" href="/">DemOurGes</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{{ url_for('home') }}">На главную</a>
-            </div>
-            <!-- Navbar Right Side -->
-            <div class="navbar-nav">
-              {% if current_user.is_authenticated %}
-                  {% if user == current_user %}
-                    <div>
-                        <a class="nav-item nav-link" href="{{ url_for('new_history') }}">Новая история</a>
-                    </div>
-                  {% endif %}
-                  <a class="nav-item nav-link" href="{{ url_for('account') }}">Изменить аккаунт</a>
-                  <a class="nav-item nav-link" href="{{ url_for('logout') }}">Выйти</a>
-              {% else %}
-                <a class="nav-item nav-link" href="{{ url_for('login') }}">Войти</a>
-                <a class="nav-item nav-link" href="{{ url_for('register') }}">Зарегистрироваться</a>
-              {% endif %}
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
     <div class="content-section">
         <div class="media">
-            <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + user.image_file) }}">
-            <div class="media-body">
-                <h2 class="account-heading">{{ user.username }}</h2>
+            <img class="rounded-circle article-img" src="{{ image_file }}">
+            <div class="media-body" >
+                <div class="user-profile">
+                    <h2 class="account-heading" style="text-align:left;float:left;max-width:33%">{{ user.username }}</h2>
+                    {% if user.is_moderator %}
+                        <h5 style="color:deepskyblue;text-align:right;float:left;max-width:33%">[МОДЕР]</h5>
+                    {% endif %}
+                    <hr style="clear:both;"/>
+                </div>
                 <p class="text-secondary">{{ user.about }}</p>
             </div>
+            {% if user.id == you.id %}
+   <div class="form-group">
+        <a class="btn btn-outline-danger" href="{{ url_for('edit_profile') }}">Редактировать профиль</a>
+    </div>
+            {% endif %}
         </div>
-  <!-- FORM HERE -->
-    {% for history in histories %}
+        <div class="chars">
+        <h1>Персонажи игрока {{ user.username }}:</h1>
+    {% for char in chars %}
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ history.author.username }}</a>
+              <a class="mr-2" href="{{ url_for('char', char_id=char.id) }}">{{ char.name }}</a>
             </div>
-            <h2><a class="article-title" href="{{ url_for('history', history_id=history.id) }}">{{ history.title }}</a></h2>
-            <p class="article-content">{{ history.info }}</p>
+            <p class="article-content">{{ char.race }}, {{ char.lvlclass }}</p>
+              {% if you.is_moderator %}<p class="article-content"><a style="color:deepskyblue" href="{{ url_for('edit_character', char_id=char.id) }}">Редактировать персонажа</a></p>{% endif %}
           </div>
         </article>
     {% endfor %}
+        </div>
     </div>
 {% endblock content %}

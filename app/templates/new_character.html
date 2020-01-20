@@ -1,0 +1,306 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+        <legend class="border-bottom mb-4">{{ title }}</legend>
+            <div class="big-row">
+            <div class="big-column">
+                <div class="form-group">
+                    {{ form.stat1.label(class="form-control-label") }}
+                    {% if form.stat1.errors %}
+                        {{ form.stat1(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.stat1.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.stat1(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.stat2.label(class="form-control-label") }}
+                    {% if form.stat2.errors %}
+                        {{ form.stat2(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.stat2.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.stat2(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.stat3.label(class="form-control-label") }}
+                    {% if form.stat3.errors %}
+                        {{ form.stat3(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.stat3.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.stat3(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.stat4.label(class="form-control-label") }}
+                    {% if form.stat4.errors %}
+                        {{ form.stat4(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.stat4.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.stat4(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.stat5.label(class="form-control-label") }}
+                    {% if form.stat5.errors %}
+                        {{ form.stat5(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.stat5.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.stat5(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.stat6.label(class="form-control-label") }}
+                    {% if form.stat6.errors %}
+                        {{ form.stat6(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.stat6.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.stat6(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                </div>
+
+            <div class="big-column">
+            <legend class="border-bottom mb-4">Какие характеристики дают бонус к спасброску?</legend>
+                <div class="form-check">
+                    {{ form.sw1(class="form-check-input") }}
+                    {{ form.sw1.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sw2(class="form-check-input") }}
+                    {{ form.sw2.label(class="form-check-label") }}
+                </div>
+                        <div class="form-check">
+                    {{ form.sw3(class="form-check-input") }}
+                    {{ form.sw3.label(class="form-check-label") }}
+                </div>
+                        <div class="form-check">
+                    {{ form.sw4(class="form-check-input") }}
+                    {{ form.sw4.label(class="form-check-label") }}
+                </div>
+                        <div class="form-check">
+                    {{ form.sw5(class="form-check-input") }}
+                    {{ form.sw5.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sw6(class="form-check-input") }}
+                    {{ form.sw6.label(class="form-check-label") }}
+                </div>
+                <legend class="border-bottom mb-4">Какими навыками он владеет мастерски?</legend>
+               <div class="form-check">
+                    {{ form.sk1(class="form-check-input") }}
+                    {{ form.sk1.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk2(class="form-check-input") }}
+                    {{ form.sk2.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk3(class="form-check-input") }}
+                    {{ form.sk3.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk4(class="form-check-input") }}
+                    {{ form.sk4.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk5(class="form-check-input") }}
+                    {{ form.sk5.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk6(class="form-check-input") }}
+                    {{ form.sk6.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk7(class="form-check-input") }}
+                    {{ form.sk7.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk8(class="form-check-input") }}
+                    {{ form.sk8.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk9(class="form-check-input") }}
+                    {{ form.sk9.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk10(class="form-check-input") }}
+                    {{ form.sk10.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk11(class="form-check-input") }}
+                    {{ form.sk11.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk12(class="form-check-input") }}
+                    {{ form.sk12.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk13(class="form-check-input") }}
+                    {{ form.sk13.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk14(class="form-check-input") }}
+                    {{ form.sk14.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk15(class="form-check-input") }}
+                    {{ form.sk15.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk16(class="form-check-input") }}
+                    {{ form.sk16.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk17(class="form-check-input") }}
+                    {{ form.sk17.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.sk18(class="form-check-input") }}
+                    {{ form.sk18.label(class="form-check-label") }}
+                </div>
+            </div>
+            <div class="big-column">
+
+                <div class="form-group">
+                    {{ form.name.label(class="form-control-label") }}
+                    {% if form.name.errors %}
+                        {{ form.name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.name(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.lvlclass.label(class="form-control-label") }}
+                    {% if form.lvlclass.errors %}
+                        {{ form.lvlclass(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.lvlclass.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.lvlclass(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.armor.label(class="form-control-label") }}
+                    {% if form.armor.errors %}
+                        {{ form.armor(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.armor.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.armor(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.speed.label(class="form-control-label") }}
+                    {% if form.speed.errors %}
+                        {{ form.speed(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.speed.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.speed(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.race.label(class="form-control-label") }}
+                    {% if form.race.errors %}
+                        {{ form.race(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.race.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.race(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.health.label(class="form-control-label") }}
+                    {% if form.health.errors %}
+                        {{ form.health(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.health.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.health(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                </div>
+            </div>
+
+                <div>{{ form.abilities.label(class="form-control-label") }}
+                {% if form.abilities.errors %}
+                    {{ form.abilities(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.abilities.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.abilities(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <div>
+                {{ form.inventory.label(class="form-control-label") }}
+                {% if form.inventory.errors %}
+                    {{ form.inventory(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.inventory.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.inventory(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+{% endblock content %}
